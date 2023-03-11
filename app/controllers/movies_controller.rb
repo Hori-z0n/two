@@ -53,11 +53,17 @@ class MoviesController < ApplicationController
   end
 
   def movies_filter
-    if params[:filter].in? %w[upcoming recent hits flops]
-      params[:filter]
+    pam = params[:filter]
+    if pam.in? %w[upcoming recent hits flops]
+      pam
     else
       :released
     end
+    #if params[:filter].in? %w[upcoming recent hits flops]
+    #  params[:filter]
+    #else
+    #  :released
+    #end
   end
 
   def movie_params
